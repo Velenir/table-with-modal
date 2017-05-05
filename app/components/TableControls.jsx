@@ -1,8 +1,10 @@
 import React from 'react';
+
+import ControlButton from "./ControlButton";
  
 export default () => (
 	<div className="table-controls">
-		<a className="button table-controls__button table-controls__button--save" href="#">Сохранить расчеты</a>
-		<a className="button table-controls__button table-controls__button--print" href="#">Распечатать</a>
+		<ControlButton className="table-controls__button table-controls__button--save">Сохранить расчеты</ControlButton>
+		<ControlButton className="table-controls__button table-controls__button--print">Распечатать</ControlButton>
 	</div>
 );
