@@ -88,6 +88,10 @@ th, td {
 			&:hover {
 				background-color: lighten($button-filled-color, 10%);
 			}
+
+			&:active {
+				background-color: darken($button-filled-color, 5%);
+			}
 		}
 
 		td {
@@ -142,6 +146,10 @@ th, td {
 				&:hover {
 					background-color: lighten($button-filled-color, 10%);
 				}
+
+				&:active {
+					background-color: darken($button-filled-color, 5%);
+				}
 			}
 
 			&--print {
@@ -149,6 +157,10 @@ th, td {
 
 				&:hover {
 					background-color: darken($background-color, 5%);
+				}
+
+				&:active {
+					background-color: darken($background-color, 10%);
 				}
 			}
 
