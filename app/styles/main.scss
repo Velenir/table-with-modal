@@ -96,10 +96,18 @@ th, td {
 			&--save {
 				background-color: $button-filled-color;
 				color: #fff;
+
+				&:hover {
+					background-color: lighten($button-filled-color, 10%);
+				}
 			}
 
 			&--print {
 				color: $head-color;
+
+				&:hover {
+					background-color: darken($background-color, 5%);
+				}
 			}
 		}
 	}
