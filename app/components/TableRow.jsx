@@ -13,7 +13,7 @@ const moreClasses = ({disabled, focused}) => {
  
 const TableRow = ({row, row: {date, values, addedPayment}, ind, currency}) => (
 	<tr className={"table-contents__row" + moreClasses(row)}>
-		<td>{ind}</td>
+		<td>{ind+1}</td>
 		<td>{date}</td>
 		{values.map((val, i) => <td key={i}>{val} <span className="rouble">{currency}</span></td>)}
 		<td>
