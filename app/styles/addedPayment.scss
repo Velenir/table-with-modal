@@ -1,0 +1,29 @@
+$value-color: #4097dc;
+$close-button-size: 3em;
+
+.added-payment {
+	display: flex;
+	align-items: center;
+	text-align: left;
+
+	&__button {
+		margin: 0 1em 0 .5em;
+		height: $close-button-size;
+		width: $close-button-size;
+
+		&:hover {
+			stroke-width: 1.5;
+		}
+	}
+
+	&__value {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 0;
+		color: $value-color;
+	}
+
+	&__saving {
+		margin: 5px 0 0;
+	}
+}
