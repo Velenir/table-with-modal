@@ -27,6 +27,13 @@ body {
 
 .container {
 	font-family: sans-serif;
+	margin: auto;
+	width: 80%;
+	width: min-content;
+
+	@media (max-width: 1000px) {
+		min-width: initial;
+	}
 
 	/* div {
 		outline: 1px dotted;
@@ -55,6 +62,7 @@ th, td {
 	}
 
 	&-contents {
+		width: 100%;
 		margin: 4em auto;
 		border-collapse: collapse;
 
@@ -73,7 +81,6 @@ th, td {
 		&__button {
 			background-color: $button-filled-color;
 			color: #fff;
-			white-space: nowrap;
 			display: inline-block;
 
 			&:hover {
@@ -81,11 +88,19 @@ th, td {
 			}
 		}
 
+		td {
+			white-space: nowrap;
+		}
+
 		th, td {
 			text-align: right;
 			min-width: 120px;
 			padding: 1em;
 			border: $cell-border;
+
+			@media (max-width: 1300px) {
+				min-width: initial;
+			}
 
 			&:first-child, &:last-child {
 				min-width: initial;
@@ -117,6 +132,10 @@ th, td {
 					background-color: darken($background-color, 5%);
 				}
 			}
+
+			&:first-child {
+				margin-left: 0;
+			}
 		}
 	}
 }
@@ -127,6 +146,7 @@ th, td {
 	border: $button-border;
 	border-radius: 27px/23px;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 @font-face {
