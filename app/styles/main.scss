@@ -6,18 +6,29 @@ html, body, body > div {
 	height: 100%;
 }
 
+$background-color: #fcfcfd;
 $head-color: #969ba1;
 $body-color: #202020;
-$cell-border: 1px solid #e1e4e9;
+
+$cell-border-color: #e1e4e9;
+$cell-border: 1px solid $cell-border-color;
+
+$button-filled-color: #4097dc;
+$button-border-color: #b9bdc1;
+$button-border: 1px solid $button-border-color;
 
 /* temp */
+
+body {
+	background-color: $background-color;
+}
 
 .container {
 	font-family: sans-serif;
 
-	div {
+	/* div {
 		outline: 1px dotted;
-	}
+	} */
 }
 
 th, td {
@@ -64,6 +75,25 @@ th, td {
 
 			&:nth-child(2) {
 				border-right-width: 3px;
+			}
+		}
+	}
+
+	&-controls {
+		&__button {
+			padding: 1em 1.7em;
+			margin: .5em;
+			border: $button-border;
+			border-radius: 27px/23px;
+			text-decoration: none;
+
+			&--save {
+				background-color: $button-filled-color;
+				color: #fff;
+			}
+
+			&--print {
+				color: $head-color;
 			}
 		}
 	}
