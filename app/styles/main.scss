@@ -8,6 +8,7 @@ html, body, body > div {
 
 $background-color: #fcfcfd;
 $head-color: #969ba1;
+$subtitle-color: #888;
 $body-color: #202020;
 
 $cell-border-color: #e1e4e9;
@@ -44,6 +45,11 @@ th, td {
 
 		&__title {
 			text-transform: uppercase;
+		}
+
+		&__subtitle {
+			font-size: .7em;
+			color: $subtitle-color;
 		}
 	}
 
