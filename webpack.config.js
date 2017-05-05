@@ -8,7 +8,8 @@ const PATHS = {
 	app: path.join(__dirname, 'app'),
 	build: path.join(__dirname, 'build'),
 	style: path.join(__dirname, 'app', 'styles'),
-	images: path.join(__dirname, 'app', 'images')
+	images: path.join(__dirname, 'app', 'images'),
+	fonts: path.join(__dirname, 'app', 'fonts')
 };
 
 const templateConfig = {
@@ -57,6 +58,7 @@ const common = merge([
 	parts.loadJavaScript(PATHS.app),
 	parts.lintCSS(),
 	// parts.copySVG(PATHS.images)
+	parts.copyFonts(PATHS.fonts),
 	SVGtoReact
 ]);
 

@@ -208,6 +208,23 @@ exports.copySVG = function(paths) {
 	};
 };
 
+exports.copyFonts = function(paths) {
+	return {
+		module: {
+			rules: [
+				{
+					test: /\.(ttf|otf|eot|woff2?|svg)$/,
+					loader: 'file-loader',
+					options: {
+						name: 'fonts/[name].[ext]'
+					},
+					include: paths
+				}
+			]
+		}
+	};
+};
+
 exports.generateSourcemaps = function(type) {
 	return {
 		devtool: type
