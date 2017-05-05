@@ -124,6 +124,11 @@ th, td {
 
 			&--disabled {
 				color: $row-disabled-text-color;
+
+				& .button {
+					background-color: lighten($button-filled-color, 30%);
+					cursor: not-allowed;
+				}
 			}
 		}
 	}
