@@ -6,16 +6,22 @@ html, body, body > div {
 	height: 100%;
 }
 
+$head-color: #969ba1;
+$body-color: #202020;
+$cell-border: 1px solid #e1e4e9;
+
 /* temp */
 
 .container {
-	div, table {
+	font-family: sans-serif;
+
+	div {
 		outline: 1px dotted;
 	}
 }
 
 th, td {
-	outline: 1px solid blue;
+	/* outline: 1px solid blue; */
 }
 
 /* temp-end */
@@ -23,10 +29,43 @@ th, td {
 .table {
 	&-title {
 		text-align: center;
+		color: $head-color;
+
+		&__title {
+			text-transform: uppercase;
+		}
 	}
 
 	&-contents {
 		margin: 4em auto;
+		border-collapse: collapse;
+
+		&__head {
+			color: $head-color;
+		}
+
+		&__body {
+			color: $body-color;
+		}
+
+		th, td {
+			text-align: right;
+			min-width: 120px;
+			padding: 1em;
+			border: $cell-border;
+
+			&:last-child {
+				text-align: center;
+			}
+
+			&:nth-child(-n + 2) {
+				text-align: left;
+			}
+
+			&:nth-child(2) {
+				border-right-width: 3px;
+			}
+		}
 	}
 }
 
