@@ -76,15 +76,13 @@ th, td {
 			padding: 1em;
 			border: $cell-border;
 
-			&:last-child {
+			&:first-child, &:last-child {
+				min-width: initial;
 				text-align: center;
 			}
 
-			&:nth-child(-n + 2) {
-				text-align: left;
-			}
-
 			&:nth-child(2) {
+				text-align: left;
 				border-right-width: 3px;
 			}
 		}
