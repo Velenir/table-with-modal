@@ -1,7 +1,16 @@
 import React from 'react';
+
+// conditional classes
+const moreClasses = ({disabled, focused}) => {
+	let classNames = "";
+	if(focused) classNames += " table-contents__row--focused";
+	if(disabled) classNames += " table-contents__row--disabled";
+	
+	return classNames;
+};
  
-const TableRow = ({row: {date, values}, ind, currency}) => (
-	<tr>
+const TableRow = ({row, row: {date, values}, ind, currency}) => (
+	<tr className={"table-contents__row" + moreClasses(row)}>
 		<td>{ind}</td>
 		<td>{date}</td>
 		{values.map((val, i) => <td key={i}>{val} <span className="rouble">{currency}</span></td>)}
