@@ -13,6 +13,7 @@ $body-color: #202020;
 
 $cell-border-color: #e1e4e9;
 $cell-border: 1px solid $cell-border-color;
+$row-hover-color: #fff7e4;
 
 $button-filled-color: #4097dc;
 $button-border-color: #b9bdc1;
@@ -63,6 +64,10 @@ th, td {
 
 		&__body {
 			color: $body-color;
+
+			tr:hover {
+				background-color: $row-hover-color;
+			}
 		}
 
 		th, td {
