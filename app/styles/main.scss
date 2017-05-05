@@ -1,0 +1,31 @@
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+html, body, body > div {
+	height: 100%;
+}
+
+/* temp */
+
+.container {
+	div, table {
+		outline: 1px dotted;
+	}
+}
+
+th, td {
+	outline: 1px solid blue;
+}
+
+/* temp-end */
+
+.table {
+	&-title {
+		text-align: center;
+	}
+
+	&-contents {
+		margin: 4em auto;
+	}
+}
