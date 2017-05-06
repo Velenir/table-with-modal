@@ -4,7 +4,7 @@ import * as actions from '../actions';
 import Main from '../components/Main';
 
 
-const mapStateToProps = ({tableData, currency}) => ({...tableData, currency});
+const mapStateToProps = ({tableData: {rows, head}, currency}) => ({rowsLength: rows.length, currency, head});
 const mapActionsToProps = {...actions, closeModal: undefined, saveAndCloseModal: undefined};
 
 

@@ -1,18 +1,26 @@
 import React, {Component} from 'react';
-import TableRow from "./TableRow";
+import TableRow from "../containers/TableRow";
 import TableHeadRow from "./TableHeadRow";
 
 export default class Table extends Component {
-	render() {
-		const {head, rows, ...rowProps} = this.props;
+	getTableRows() {
+		const {rowsLength} = this.props, rows = [];
 		
+		for (let i = 0; i < rowsLength; ++i) {
+			rows.push(<TableRow key={i} ind={i}/>);
+		}
+		
+		return rows;
+	}
+	
+	render() {		
 		return (
 			<table className="table-contents">
 				<thead className="table-contents__head">
-					<TableHeadRow row={head}/>
+					<TableHeadRow row={this.props.head}/>
 				</thead>
 				<tbody className="table-contents__body">
-					{rows.map((row, i) => <TableRow key={i} row={row} ind={i} {...rowProps}/>)}
+					{this.getTableRows()}
 				</tbody>
 			</table>
 		);

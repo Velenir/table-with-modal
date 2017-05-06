@@ -53,11 +53,11 @@ class Main extends Component {
 	}
 	
 	render() {
-		const {openModal, ...tableProps} = this.props;
+		const {...tableProps} = this.props;
 		return (
 			<div className="container">
 				<TableTitle/>
-				<Table {...tableProps} onButtonClicked={openModal}/>
+				<Table {...tableProps}/>
 				<TableControls/>
 				<Modal>
 					<AddPaymentDialog/>

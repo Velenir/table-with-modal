@@ -28,8 +28,8 @@ const moreClasses = ({disabled, focused}) => {
 
 class TableRow extends Component {
 	onButtonClicked = () => {
-		const {ind, onButtonClicked} = this.props;
-		onButtonClicked(ind);
+		const {ind, openModal} = this.props;
+		openModal(ind);
 	}
 	
 	render() {
