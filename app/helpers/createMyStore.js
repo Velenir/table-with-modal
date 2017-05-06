@@ -15,7 +15,7 @@ function getDefaultInitialState() {
 
 export default function createMyStore(initialState = getDefaultInitialState()) {
 	// eslint-disable-next-line no-underscore-dangle
-	return createStore({}, initialState, process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
+	return createStore(st => st, initialState, process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({
 		serialize: {
 			options: {
 				symbol: true

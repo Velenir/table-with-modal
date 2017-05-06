@@ -2,11 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 
 import {Provider} from 'react-redux';
-import {createMyStore} from './helpers';
+import {createStore} from './helpers';
 
-import Main from './components/Main';
+import Main from './containers/Main';
 
-const store = createMyStore();
+const store = createStore();
 
 render(
 	<Provider store={store}>
