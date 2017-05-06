@@ -4,7 +4,7 @@ import TableHeadRow from "./TableHeadRow";
 
 export default class Table extends Component {
 	render() {
-		const {head, rows, currency} = this.props;
+		const {head, rows, ...rowProps} = this.props;
 		
 		return (
 			<table className="table-contents">
@@ -12,7 +12,7 @@ export default class Table extends Component {
 					<TableHeadRow row={head}/>
 				</thead>
 				<tbody className="table-contents__body">
-					{rows.map((row, i) => <TableRow key={i} row={row} ind={i} currency={currency}/>)}
+					{rows.map((row, i) => <TableRow key={i} row={row} ind={i} {...rowProps}/>)}
 				</tbody>
 			</table>
 		);

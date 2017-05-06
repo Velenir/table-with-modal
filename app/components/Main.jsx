@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import TableTitle from "./TableTitle";
 import Table from "./Table";
@@ -19,21 +19,58 @@ const tableData = {
 	currency: "i"
 };
 
-const Main = () => (
-	<div className="container">
-		<TableTitle/>
-		<Table {...tableData}/>
-		<TableControls/>
-		<Modal>
-			<h3 className="modal__title">Сумма платежа</h3>
-			<input type="text" className="modal__input"/>
-			<div className="modal__controls">
-				<ControlButton className="modal__controls__button">
-					Сохранить
-				</ControlButton>
+// const Main = () => (
+// 	<div className="container">
+// 		<TableTitle/>
+// 		<Table {...tableData}/>
+// 		<TableControls/>
+// 		<Modal>
+// 			<h3 className="modal__title">Сумма платежа</h3>
+// 			<input type="text" className="modal__input"/>
+// 			<div className="modal__controls">
+// 				<ControlButton className="modal__controls__button">
+// 					Сохранить
+// 				</ControlButton>
+// 			</div>
+// 		</Modal>
+// 	</div>
+// );
+
+
+class Main extends Component {
+	state = {modalOpen: true}
+	
+	openModal = () => {
+		this.setState({
+			modalOpen: true
+		});
+	}
+	
+	closeModal = () => {
+		this.setState({
+			modalOpen: false
+		});
+	}
+	
+	render() {
+		return (
+			<div className="container">
+				<TableTitle/>
+				<Table {...tableData} onButtonClicked={this.openModal}/>
+				<TableControls/>
+				{this.state.modalOpen && <Modal closeModal={this.closeModal}>
+					<h3 className="modal__title">Сумма платежа</h3>
+					<input type="text" className="modal__input" defaultValue="0 a"/>
+					<div className="modal__controls">
+						<ControlButton className="modal__controls__button">
+							Сохранить
+						</ControlButton>
+					</div>
+				</Modal>}
 			</div>
-		</Modal>
-	</div>
-);
+		);
+	}
+}
+
 
 export default Main;
