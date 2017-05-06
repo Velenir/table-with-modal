@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import TableTitle from "./TableTitle";
 import Table from "./Table";
 import TableControls from "./TableControls";
-import Modal from "./Modal";
-import ControlButton from "./ControlButton";
+import Modal from "../containers/Modal";
+import AddPaymentDialog from "../containers/AddPaymentDialog";
 
 import "../styles/main.scss";
 
@@ -53,20 +53,15 @@ class Main extends Component {
 	}
 	
 	render() {
+		const {openModal, ...tableProps} = this.props;
 		return (
 			<div className="container">
 				<TableTitle/>
-				<Table {...this.props} onButtonClicked={this.openModal}/>
+				<Table {...tableProps} onButtonClicked={openModal}/>
 				<TableControls/>
-				{this.state.modalOpen && <Modal closeModal={this.closeModal}>
-					<h3 className="modal__title">Сумма платежа</h3>
-					<input type="text" className="modal__input" defaultValue="0 a"/>
-					<div className="modal__controls">
-						<ControlButton className="modal__controls__button">
-							Сохранить
-						</ControlButton>
-					</div>
-				</Modal>}
+				<Modal>
+					<AddPaymentDialog/>
+				</Modal>
 			</div>
 		);
 	}
