@@ -3,6 +3,8 @@ import React from 'react';
 import TableTitle from "./TableTitle";
 import Table from "./Table";
 import TableControls from "./TableControls";
+import Modal from "./Modal";
+import ControlButton from "./ControlButton";
 
 import "../styles/main.scss";
 
@@ -22,6 +24,15 @@ const Main = () => (
 		<TableTitle/>
 		<Table {...tableData}/>
 		<TableControls/>
+		<Modal>
+			<h3 className="modal__title">Сумма платежа</h3>
+			<input type="text" className="modal__input"/>
+			<div className="modal__controls">
+				<ControlButton className="modal__controls__button">
+					Сохранить
+				</ControlButton>
+			</div>
+		</Modal>
 	</div>
 );
 
