@@ -91,7 +91,7 @@ module.exports = function(env) {
 			parts.extractBundles([
 				{
 					name: 'vendor',
-					entries: ['react', 'react-dom']
+					entries: ['react', 'react-dom', 'redux', 'react-redux']
 				},
 				{
 					name: 'manifest'
