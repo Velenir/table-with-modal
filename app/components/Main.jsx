@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import TableTitle from "./TableTitle";
-import Table from "./Table";
+import Table from "../containers/Table";
 import TableControls from "./TableControls";
 import Modal from "../containers/Modal";
 import AddPaymentDialog from "../containers/AddPaymentDialog";
@@ -53,11 +53,10 @@ class Main extends Component {
 	}
 	
 	render() {
-		const {...tableProps} = this.props;
 		return (
 			<div className="container">
 				<TableTitle/>
-				<Table {...tableProps}/>
+				<Table/>
 				<TableControls/>
 				<Modal>
 					<AddPaymentDialog/>
