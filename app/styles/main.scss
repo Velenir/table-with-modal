@@ -128,6 +128,7 @@ th, td {
 
 		&__row {
 			background-color: $row-background-color;
+			height: 5.35em;
 
 			&--focused {
 				box-shadow: inset 0 0 1px rgba(128, 128, 128, 0.57), 0 0 2px rgba(128, 128, 128, 0.57);
