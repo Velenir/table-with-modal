@@ -1,6 +1,6 @@
 import {OPEN_MODAL, CLOSE_MODAL, SAVE_AND_CLOSE_MODAL} from "../actions/actionTypes";
 
-export default function(state = {}, action) {
+export default function(state = {open: false, rowInd: null}, action) {
 	switch (action.type) {
 		case OPEN_MODAL:
 			return {open: true, rowInd: action.rowInd};
