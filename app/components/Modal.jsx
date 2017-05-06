@@ -5,6 +5,8 @@ import CloseButton from "../images/closeButton.svg";
 
 class Modal extends Component {
 	render() {
+		if(!this.props.open) return null;
+		
 		const {closeModal, children} = this.props;
 		
 		return (
