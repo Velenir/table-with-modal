@@ -4,7 +4,7 @@ import * as actions from '../actions';
 import Main from '../components/Main';
 
 
-const mapStateToProps = state => state;
+const mapStateToProps = ({tableData, currency}) => ({...tableData, currency});
 
 
 export default connect(mapStateToProps, actions)(Main);

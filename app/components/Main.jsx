@@ -8,16 +8,16 @@ import ControlButton from "./ControlButton";
 
 import "../styles/main.scss";
 
-const tableData = {
-	head: ["№", "Дата", "Сумма переплат", "Остаток задолженности", "Основной долг", "Начисленные проценты", "Платеж"],
-	rows: [
-		{date: "05.16", values: ["30 000", "3 450 000", "10 000", "30 000", "40 000"], disabled: true},
-		{date: "06.16", values: ["60 000", "3 440 000", "10 000", "30 000", "40 000"], focused: true},
-		{date: "07.16", values: ["90 000", "3 430 000", "10 000", "30 000", "40 000"], addedPayment: {value: "10 000", saving: "25 000"}},
-		{date: "08.16", values: ["120 000", "3 420 000", "10 000", "30 000", "40 000"]},
-	],
-	currency: "i"
-};
+// const tableData = {
+// 	head: ["№", "Дата", "Сумма переплат", "Остаток задолженности", "Основной долг", "Начисленные проценты", "Платеж"],
+// 	rows: [
+// 		{date: "05.16", values: ["30 000", "3 450 000", "10 000", "30 000", "40 000"], disabled: true},
+// 		{date: "06.16", values: ["60 000", "3 440 000", "10 000", "30 000", "40 000"], focused: true},
+// 		{date: "07.16", values: ["90 000", "3 430 000", "10 000", "30 000", "40 000"], addedPayment: {value: "10 000", saving: "25 000"}},
+// 		{date: "08.16", values: ["120 000", "3 420 000", "10 000", "30 000", "40 000"]},
+// 	],
+// 	currency: "i"
+// };
 
 // const Main = () => (
 // 	<div className="container">
@@ -56,7 +56,7 @@ class Main extends Component {
 		return (
 			<div className="container">
 				<TableTitle/>
-				<Table {...tableData} onButtonClicked={this.openModal}/>
+				<Table {...this.props} onButtonClicked={this.openModal}/>
 				<TableControls/>
 				{this.state.modalOpen && <Modal closeModal={this.closeModal}>
 					<h3 className="modal__title">Сумма платежа</h3>
