@@ -8,6 +8,7 @@ export function rowReducer(state = {}, action) {
 		case SAVE_AND_CLOSE_MODAL:
 			return {
 				...state,
+				// не уверен как считается экономия (saving)
 				addedPayment: {value: action.value, saving: "25 000"}
 			};
 		default:

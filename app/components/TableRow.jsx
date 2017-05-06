@@ -11,21 +11,6 @@ const moreClasses = ({disabled, focused}) => {
 	return classNames;
 };
  
-// const TableRow = ({row, row: {date, values, addedPayment, disabled}, ind, currency, onButtonClicked}) => (
-// 	<tr className={"table-contents__row" + moreClasses(row)}>
-// 		<td>{ind+1}</td>
-// 		<td>{date}</td>
-// 		{values.map((val, i) => <td key={i}>{val} <span className="rouble">{currency}</span></td>)}
-// 		<td>
-// 			{addedPayment ? <AddedPayment rowInd={ind}/> :
-// 				<ControlButton className="button table-contents__button"
-// 					onClick={disabled ? undefined : onButtonClicked}>
-// 					Добавить платеж
-// 				</ControlButton>}
-// 		</td>
-// 	</tr>
-// );
-
 class TableRow extends Component {
 	onButtonClicked = () => {
 		const {ind, openModal} = this.props;
