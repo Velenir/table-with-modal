@@ -1,0 +1,110 @@
+import React, {Component} from 'react';
+
+import {formatMoney} from "../helpers";
+import "../styles/moneyInput.scss";
+
+
+class MoneyInut extends Component {
+	state = {value: " ₽", caretColor: "auto"}
+	
+	onChange = ({target, target: {value}}) => {
+		let start = target.selectionStart;
+		let newValue = value.replace(/\D/g, "");
+		
+		if(newValue === "") {
+			this.setState({value: " ₽"}, this.resetCaret);
+			return;
+		}
+		
+		newValue = formatMoney(parseInt(newValue));
+		
+		// fixes caret jump on invalid (non-numeric) paste
+		if(newValue === this.state.value) {
+			start -= value.length - this.state.value.length;
+		}
+		
+		// account for adding spaces (e.g. 1 000)
+		if(newValue.length - value.length > 0) {
+			++start;
+		}
+		
+		// don't allow carret past rouble symbol
+		if(start > newValue.length - 2) start = newValue.length - 2;
+		
+		this.setState({
+			value: newValue
+		}, () => {
+			// asynchronously (after re-render) move caret to the calculated offset
+			target.selectionStart = target.selectionEnd = start;
+		});
+		
+	}
+	
+	onKeyDown(e) {
+		const {key, target} = e;
+		const {selectionStart: start, selectionEnd: end, value: {length}} = target;
+		
+		// don't allow caret past rouble symbol
+		switch (key) {
+			case "ArrowRight":
+				if(!e.shiftKey && end > length - 3) {
+					// start !== end accounts for ongoing selection
+					target.selectionEnd = length - (start !== end ? 2 : 3);
+					// fixes not being able to scroll past rouble symbol when text overflows input
+					target.scrollLeft = target.scrollWidth;
+				}
+				break;
+			case "ArrowDown":
+			case "End":
+				target.selectionStart = target.selectionEnd = length - 2;
+				target.scrollLeft = target.scrollWidth;
+				e.preventDefault();
+				break;
+			default:
+		}
+	}
+	
+	onClick = ({target}) => {
+		const len = target.value.length;
+		this.setState({
+			caretColor: "auto"
+		});
+		
+		// when previously had selection start and end are reported stale
+		// correct stats on the next tick
+		requestAnimationFrame(() => {
+			if(target.selectionStart > len - 2 && target.selectionStart === target.selectionEnd) {
+				target.selectionStart = target.selectionEnd = len - 2;
+			}
+		});
+		
+	}
+
+	onMouseDown = () => {
+		// hide caret to avoid visual jump
+		this.setState({
+			caretColor: "transparent"
+		});
+	}
+	
+	resetCaret = () => {
+		this.input.selectionStart = this.input.selectionEnd = 0;
+	}
+	
+	componentDidMount() {
+		this.resetCaret();
+	}
+	
+	render() {
+		return (
+			<input type="text" className={"money-input " + (this.props.className || "")}
+				value={this.state.value} onChange={this.onChange} onKeyDown={this.onKeyDown}
+				onClick={this.onClick} onMouseDown={this.onMouseDown}
+				ref={c => this.input = c} autoFocus
+				style={{caretColor: this.state.caretColor}}
+			/>
+		);
+	}
+}
+
+export default MoneyInut;
