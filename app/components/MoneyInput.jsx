@@ -20,10 +20,14 @@ class MoneyInut extends PureComponent {
 		if(newValue === "") {
 			if(newValue === oldValue.slice(0, -2)) {
 				requestAnimationFrame(this.resetCaret);
+				this.props.onChange && this.props.onChange(e);
 				return;
 			}
-			this.setState({value: this.suffix}, this.resetCaret);
-			newValue !== oldValue && this.props.onChange && this.props.onChange(e);
+			this.setState({value: this.suffix}, () => {
+				this.resetCaret();
+				this.props.onChange && this.props.onChange(e);
+			});
+			
 			return;
 		}
 		
