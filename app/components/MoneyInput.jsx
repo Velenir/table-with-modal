@@ -7,20 +7,23 @@ import "../styles/moneyInput.scss";
 class MoneyInut extends Component {
 	state = {value: " ₽", caretColor: "auto"}
 	
-	onChange = ({target, target: {value}}) => {
+	onChange = (e) => {
+		const {target, target: {value}} = e;
+		const oldValue = this.state.value;
 		let start = target.selectionStart;
 		let newValue = value.replace(/\D/g, "");
 		
 		if(newValue === "") {
 			this.setState({value: " ₽"}, this.resetCaret);
+			newValue !== oldValue && this.props.onChange && this.props.onChange(e);
 			return;
 		}
 		
 		newValue = formatMoney(parseInt(newValue));
 		
 		// fixes caret jump on invalid (non-numeric) paste
-		if(newValue === this.state.value) {
-			start -= value.length - this.state.value.length;
+		if(newValue === oldValue) {
+			start -= value.length - oldValue.length;
 		}
 		
 		// account for adding spaces (e.g. 1 000)
@@ -36,6 +39,7 @@ class MoneyInut extends Component {
 		}, () => {
 			// asynchronously (after re-render) move caret to the calculated offset
 			target.selectionStart = target.selectionEnd = start;
+			newValue !== oldValue && this.props.onChange && this.props.onChange(e);
 		});
 		
 	}
@@ -95,6 +99,10 @@ class MoneyInut extends Component {
 		this.resetCaret();
 	}
 	
+	checkValidity() {
+		return this.input.checkValidity();
+	}
+	
 	render() {
 		return (
 			<input type="text" className={"money-input " + (this.props.className || "")}
@@ -102,6 +110,7 @@ class MoneyInut extends Component {
 				onClick={this.onClick} onMouseDown={this.onMouseDown}
 				ref={c => this.input = c} autoFocus
 				style={{caretColor: this.state.caretColor}}
+				pattern="^[1-9]\d{0,2}\s(\d{1,3}\s)*₽$"
 			/>
 		);
 	}

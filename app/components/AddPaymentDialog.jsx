@@ -3,9 +3,17 @@ import ControlButton from "./ControlButton";
 import MoneyInput from "./MoneyInput";
 
 class AddPaymentDialog extends Component {
+	state = {buttonDisabled: true}
+	
 	onSaveClicked = () => {
 		const {rowInd, saveAndCloseModal} = this.props;
 		saveAndCloseModal(rowInd, this.input.value);
+	}
+	
+	onInputChange = () => {
+		this.setState({
+			buttonDisabled: !this.input.checkValidity()
+		});
 	}
 	
 	render() {
@@ -13,9 +21,9 @@ class AddPaymentDialog extends Component {
 			<div>
 				<h3 className="modal__title">Сумма платежа</h3>
 				<input type="text" className="modal__input" defaultValue="0 a" ref={c => this.input = c}/>
-				<MoneyInput className="modal__input"/>
+				<MoneyInput className="modal__input" ref={c => this.input = c} onChange={this.onInputChange}/>
 				<div className="modal__controls">
-					<ControlButton className="modal__controls__button" onClick={this.onSaveClicked}>
+					<ControlButton className="modal__controls__button" onClick={this.onSaveClicked} disabled={this.state.buttonDisabled}>
 						Сохранить
 					</ControlButton>
 				</div>

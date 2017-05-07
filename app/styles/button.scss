@@ -17,4 +17,11 @@
 	&:active {
 		background-color: darken($button-filled-color, 5%);
 	}
+
+	&--disabled {
+		&, &:hover, &:active {
+			background-color: lighten($button-filled-color, 30%);
+			cursor: not-allowed;
+		}
+	}
 }
