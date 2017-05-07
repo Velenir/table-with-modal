@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import TableRow from "../containers/TableRow";
 import TableHeadRow from "./TableHeadRow";
 
+import "../styles/table.scss";
+
 export default class Table extends Component {
 	getTableRows() {
 		const {rowsLength} = this.props, rows = [];
@@ -13,7 +15,7 @@ export default class Table extends Component {
 		return rows;
 	}
 	
-	render() {		
+	render() {
 		return (
 			<table className="table-contents">
 				<thead className="table-contents__head">

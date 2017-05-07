@@ -13,22 +13,7 @@ body > div {
 	justify-content: center;
 }
 
-$background-color: #fcfcfd;
-$head-color: #969ba1;
-$subtitle-color: #888;
-$body-color: #202020;
-
-$cell-border-color: #e1e4e9;
-$cell-border: 1px solid $cell-border-color;
-$row-background-color: #fff;
-$row-hover-color: #fff7e4;
-$row-disabled-text-color: #c6c6c6;
-
-$button-filled-color: #4097dc;
-$button-border-color: #b9bdc1;
-$button-border: 1px solid $button-border-color;
-
-/* temp */
+@import "./globals.scss";
 
 body {
 	background-color: $background-color;

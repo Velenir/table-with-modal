@@ -1,0 +1,20 @@
+@import "./globals.scss";
+
+.button {
+	padding: 1em 2.3em;
+	margin: 0 .5em;
+	border: $button-border;
+	border-radius: 27px/23px;
+	text-decoration: none;
+	white-space: nowrap;
+	background-color: $button-filled-color;
+	color: $button-text-color;
+
+	&:hover {
+		background-color: lighten($button-filled-color, 10%);
+	}
+
+	&:active {
+		background-color: darken($button-filled-color, 5%);
+	}
+}

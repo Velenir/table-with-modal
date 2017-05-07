@@ -1,5 +1,4 @@
-$value-color: #4097dc;
-$close-button-size: 3em;
+@import "./globals.scss";
 
 .added-payment {
 	display: flex;
@@ -8,8 +7,6 @@ $close-button-size: 3em;
 
 	&__button {
 		margin: 0 1em 0 .5em;
-		height: $close-button-size;
-		width: $close-button-size;
 
 		&:hover {
 			stroke-width: 1.5;
@@ -20,7 +17,7 @@ $close-button-size: 3em;
 		font-size: 1.5em;
 		font-weight: bold;
 		margin: 0;
-		color: $value-color;
+		color: $payment-value-color;
 	}
 
 	&__saving {

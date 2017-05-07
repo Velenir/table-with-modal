@@ -1,3 +1,7 @@
+@import "./globals.scss";
+
+$modal-border: 2px solid $modal-border-color;
+
 .modal {
 	&__overlay {
 		position: fixed;
@@ -5,7 +9,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: rgba(255, 255, 255, 0.78);
+		background-color: $modal-overlay-color;
 		z-index: 999;
 		display: flex;
 		align-items: center;
@@ -13,18 +17,16 @@
 	}
 
 	&__contents {
-		background-color: #fff;
+		background-color: $modal-background-color;
 		width: 460px;
 		position: relative;
 		text-align: center;
-		border: 2px solid #dadde3;
+		border: $modal-border;
 		border-radius: 4px;
 		box-shadow: 0 0 150px 2px rgba(0, 0, 255, 0.23);
 	}
 
 	&__close {
-		height: 3em;
-		width: 3em;
 		position: absolute;
 		bottom: 100%;
 		left: 50%;
@@ -35,30 +37,25 @@
 
 	&__title {
 		font-weight: normal;
-		background-color: #fbfbfd;
+		background-color: $modal-title-background-color;
 		margin: 0;
 		padding: 1em;
-		border-bottom: 2px solid #dadde3;
+		border-bottom: $modal-border;
 	}
 
 	&__input {
 		display: block;
 		margin: 2rem auto 0;
-		border: 1px solid #dadde3;
+		border: 1px solid $modal-border-color;
 		box-shadow: inset 0 0 2px rgba(112, 146, 146, 0.59);
 		width: 70%;
 		padding: 1rem;
-		color: #4097dc;
+		color: $payment-value-color;
 		text-align: center;
 		font: bold 1.5em rouble, sans-serif;
 	}
 
 	&__controls {
 		padding: 3.5em;
-
-		&__button {
-			background-color: #4097dc;
-			color: #fff;
-		}
 	}
 }
