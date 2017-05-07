@@ -77,7 +77,7 @@ module.exports = function(env) {
 				plugins: [
 					new webpack.HashedModuleIdsPlugin()
 				],
-				recordsPath: 'records.json'
+				recordsPath: path.join(__dirname, 'records.json')
 			},
 			parts.indexTemplate(templateConfig, {
 				inline: 'manifest'
@@ -100,7 +100,7 @@ module.exports = function(env) {
 			]),
 			parts.clean(PATHS.build),
 			parts.generateSourcemaps('source-map'),
-			parts.extractCSS(PATHS.style),
+			parts.extractCSS(PATHS.style, {publicPath: '../'}),
 			parts.optimizeImages(PATHS.images)
 		]);
 	}

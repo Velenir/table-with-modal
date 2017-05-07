@@ -82,7 +82,7 @@ exports.loadCSS = function(paths) {
 	};
 };
 
-exports.extractCSS = function(paths) {
+exports.extractCSS = function(paths, options) {
 	return {
 		module: {
 			rules: [
@@ -92,10 +92,10 @@ exports.extractCSS = function(paths) {
 					// Restrict extraction process to the given paths.
 					include: paths,
 					
-					use: ExtractTextPlugin.extract({
+					use: ExtractTextPlugin.extract(Object.assign({
 						fallback: 'style-loader',
 						use: ['css-loader?importLoaders=1', 'postcss-loader']
-					})
+					}, options))
 				},
 				// Extract SCSS during build
 				{
@@ -103,10 +103,10 @@ exports.extractCSS = function(paths) {
 					// Restrict extraction process to the given paths.
 					include: paths,
 					
-					use: ExtractTextPlugin.extract({
+					use: ExtractTextPlugin.extract(Object.assign({
 						fallback: 'style-loader',
 						use: ['css-loader', 'postcss-loader', 'sass-loader']
-					})
+					}, options))
 				}
 			]
 		},
