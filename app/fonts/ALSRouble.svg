@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20161116 at Sat May  6 19:45:58 2017
+ By Jimmy Wärting
+Copyright (c) 2007 by ALS. All rights reserved.
+</metadata>
+<defs>
+<font id="ALSRubl" horiz-adv-x="1024" >
+  <font-face 
+    font-family="ALS Rubl"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="2048"
+    panose-1="2 0 5 6 0 0 0 2 0 4"
+    ascent="1536"
+    descent="-512"
+    bbox="184 -36 1235 1495"
+    underline-thickness="102"
+    underline-position="-408"
+    unicode-range="U+0020-20BD"
+  />
+<missing-glyph 
+ />
+    <glyph glyph-name=".notdef" 
+ />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="682" 
+ />
+    <glyph glyph-name="space" unicode=" " 
+ />
+    <glyph glyph-name="uni00A0" unicode="&#xa0;" 
+ />
+    <glyph glyph-name="ydieresis" unicode="&#xff;" horiz-adv-x="1705" 
+ />
+    <glyph glyph-name="uni2000" unicode="&#x2000;" horiz-adv-x="768" 
+ />
+    <glyph glyph-name="uni2001" unicode="&#x2001;" horiz-adv-x="1536" 
+ />
+    <glyph glyph-name="uni2002" unicode="&#x2002;" horiz-adv-x="768" 
+ />
+    <glyph glyph-name="uni2003" unicode="&#x2003;" horiz-adv-x="1536" 
+ />
+    <glyph glyph-name="uni2004" unicode="&#x2004;" horiz-adv-x="512" 
+ />
+    <glyph glyph-name="uni2005" unicode="&#x2005;" horiz-adv-x="384" 
+ />
+    <glyph glyph-name="uni2006" unicode="&#x2006;" horiz-adv-x="256" 
+ />
+    <glyph glyph-name="uni2007" unicode="&#x2007;" horiz-adv-x="256" 
+ />
+    <glyph glyph-name="uni2008" unicode="&#x2008;" horiz-adv-x="192" 
+ />
+    <glyph glyph-name="uni2009" unicode="&#x2009;" horiz-adv-x="307" 
+ />
+    <glyph glyph-name="uni200A" unicode="&#x200a;" horiz-adv-x="85" 
+ />
+    <glyph glyph-name="uni202F" unicode="&#x202f;" horiz-adv-x="307" 
+ />
+    <glyph glyph-name="uni205F" unicode="&#x205f;" horiz-adv-x="384" 
+ />
+    <glyph glyph-name="uni20BD" unicode="&#x20bd;" horiz-adv-x="1398" 
+d="M184 596v163h146v736h360q243 0 373 -91q172 -120 172 -342q0 -93 -33.5 -176t-93.5 -143q-75 -75 -175.5 -111t-250.5 -36h-162v-222h643v-164h-643v-246h-190v246h-146v164h146v222h-146zM1036 1056q0 150 -102 219q-83 56 -256 56h-158v-574h129q120 0 189 19
+q67 18 116 67q82 82 82 213z" />
+  </font>
+</defs></svg>

@@ -28,161 +28,16 @@ body {
 	@media (max-width: 1000px) {
 		min-width: initial;
 	}
-
-	/* div {
-		outline: 1px dotted;
-	} */
-}
-
-th, td {
-	/* outline: 1px solid blue; */
-}
-
-/* temp-end */
-
-.table {
-	&-title {
-		text-align: center;
-		color: $head-color;
-
-		&__title {
-			text-transform: uppercase;
-		}
-
-		&__subtitle {
-			font-size: .7em;
-			color: $subtitle-color;
-		}
-	}
-
-	&-contents {
-		width: 100%;
-		margin: 4em auto;
-		border-collapse: collapse;
-
-		&__head {
-			color: $head-color;
-		}
-
-		&__body {
-			color: $body-color;
-
-			tr:hover {
-				background-color: $row-hover-color;
-			}
-		}
-
-		&__button {
-			background-color: $button-filled-color;
-			color: #fff;
-			display: inline-block;
-
-			&:hover {
-				background-color: lighten($button-filled-color, 10%);
-			}
-
-			&:active {
-				background-color: darken($button-filled-color, 5%);
-			}
-		}
-
-		td {
-			white-space: nowrap;
-		}
-
-		th, td {
-			text-align: right;
-			min-width: 120px;
-			padding: 1em;
-			border: $cell-border;
-
-			@media (max-width: 1300px) {
-				min-width: initial;
-			}
-
-			&:first-child, &:last-child {
-				min-width: initial;
-				text-align: center;
-			}
-
-			&:nth-child(2) {
-				text-align: left;
-				border-right-width: 3px;
-			}
-		}
-
-		&__row {
-			background-color: $row-background-color;
-			height: 5.35em;
-
-			&--focused {
-				box-shadow: inset 0 0 1px rgba(128, 128, 128, 0.57), 0 0 2px rgba(128, 128, 128, 0.57);
-			}
-
-			&--disabled {
-				color: $row-disabled-text-color;
-
-				& .button {
-					background-color: lighten($button-filled-color, 30%);
-					cursor: not-allowed;
-				}
-			}
-		}
-	}
-
-	&-controls {
-		&__button {
-			&--save {
-				background-color: $button-filled-color;
-				color: #fff;
-
-				&:hover {
-					background-color: lighten($button-filled-color, 10%);
-				}
-
-				&:active {
-					background-color: darken($button-filled-color, 5%);
-				}
-			}
-
-			&--print {
-				color: $head-color;
-
-				&:hover {
-					background-color: darken($background-color, 5%);
-				}
-
-				&:active {
-					background-color: darken($background-color, 10%);
-				}
-			}
-
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-	}
-}
-
-.button {
-	padding: 1em 2em;
-	margin: 0 .5em;
-	border: $button-border;
-	border-radius: 27px/23px;
-	text-decoration: none;
-	white-space: nowrap;
 }
 
 @font-face {
 	font-family: 'rouble';
-	src: url('../fonts/rouble-webfont.eot');
-	src: url('../fonts/rouble-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/rouble-webfont.woff') format('woff'), url('../fonts/rouble-webfont.otf') format('opentype'), url('../fonts/rouble-webfont.ttf') format('truetype');
+	src: url('../fonts/ALSRouble.woff2') format('woff2'), url('../fonts/ALSRouble.woff') format('woff'), url('../fonts/ALSRouble.otf') format('opentype'), url('../fonts/ALSRouble.ttf') format('truetype'), url('../fonts/ALSRouble.svg#ALSRubl') format('svg');
 	font-weight: normal;
 	font-style: normal;
+	unicode-range: U+20BD;
 }
 
 .rouble {
-	font-family: 'rouble';
-	font-weight: normal;
-	font-style: normal;
+	font-family: 'rouble', sans-serif;
 }
