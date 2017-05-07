@@ -7,5 +7,5 @@ import modal from './modalReducer';
 export default combineReducers({
 	tableData,
 	modal,
-	currency: (val = "i") => val
+	currency: (val = "RUB") => val
 });

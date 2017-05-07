@@ -5,7 +5,11 @@ import "../styles/moneyInput.scss";
 
 
 class MoneyInut extends Component {
-	state = {value: " ₽", caretColor: "auto"}
+	currencySymbol = formatMoney(0, this.props.currency).slice(-1)
+	suffix = " " + this.currencySymbol
+	suffixLength = this.suffix.length
+	
+	state = {value: this.suffix, caretColor: "auto"}
 	
 	onChange = (e) => {
 		const {target, target: {value}} = e;
@@ -14,12 +18,12 @@ class MoneyInut extends Component {
 		let newValue = value.replace(/\D/g, "");
 		
 		if(newValue === "") {
-			this.setState({value: " ₽"}, this.resetCaret);
+			this.setState({value: this.suffix}, this.resetCaret);
 			newValue !== oldValue && this.props.onChange && this.props.onChange(e);
 			return;
 		}
 		
-		newValue = formatMoney(parseInt(newValue));
+		newValue = formatMoney(parseInt(newValue), this.props.currency);
 		
 		// fixes caret jump on invalid (non-numeric) paste
 		if(newValue === oldValue) {
@@ -32,7 +36,7 @@ class MoneyInut extends Component {
 		}
 		
 		// don't allow carret past rouble symbol
-		if(start > newValue.length - 2) start = newValue.length - 2;
+		if(start > newValue.length - this.suffixLength) start = newValue.length - this.suffixLength;
 		
 		this.setState({
 			value: newValue
@@ -51,16 +55,16 @@ class MoneyInut extends Component {
 		// don't allow caret past rouble symbol
 		switch (key) {
 			case "ArrowRight":
-				if(!e.shiftKey && end > length - 3) {
+				if(!e.shiftKey && end > length - this.suffixLength - 1) {
 					// start !== end accounts for ongoing selection
-					target.selectionEnd = length - (start !== end ? 2 : 3);
+					target.selectionEnd = length - this.suffixLength - (start !== end ? 0 : 1);
 					// fixes not being able to scroll past rouble symbol when text overflows input
 					target.scrollLeft = target.scrollWidth;
 				}
 				break;
 			case "ArrowDown":
 			case "End":
-				target.selectionStart = target.selectionEnd = length - 2;
+				target.selectionStart = target.selectionEnd = length - this.suffixLength;
 				target.scrollLeft = target.scrollWidth;
 				e.preventDefault();
 				break;
@@ -77,8 +81,8 @@ class MoneyInut extends Component {
 		// when previously had selection start and end are reported stale
 		// correct stats on the next tick
 		requestAnimationFrame(() => {
-			if(target.selectionStart > len - 2 && target.selectionStart === target.selectionEnd) {
-				target.selectionStart = target.selectionEnd = len - 2;
+			if(target.selectionStart > len - this.suffixLength && target.selectionStart === target.selectionEnd) {
+				target.selectionStart = target.selectionEnd = len - this.suffixLength;
 			}
 		});
 		
@@ -115,7 +119,7 @@ class MoneyInut extends Component {
 				onClick={this.onClick} onMouseDown={this.onMouseDown}
 				ref={c => this.input = c} autoFocus
 				style={{caretColor: this.state.caretColor}}
-				pattern="^[1-9]\d{0,2}\s(\d{1,3}\s)*₽$"
+				pattern={`^[1-9]\\d{0,2}\\s(\\d{1,3}\\s)*${this.currencySymbol}$`}
 			/>
 		);
 	}

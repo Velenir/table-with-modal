@@ -17,8 +17,8 @@ class AddedPayment extends Component {
 			<div className="added-payment">
 				<CloseButton className="added-payment__button" onClick={this.removePayment}/>
 				<div>
-					<p className="added-payment__value rouble">{formatMoney(value)}</p>
-					<p className="added-payment__saving rouble">Экономия {formatMoney(saving)}</p>
+					<p className="added-payment__value rouble">{formatMoney(value, currency)}</p>
+					<p className="added-payment__saving rouble">Экономия {formatMoney(saving, currency)}</p>
 				</div>
 			</div>
 		);

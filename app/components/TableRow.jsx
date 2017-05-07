@@ -26,7 +26,7 @@ class TableRow extends Component {
 			<tr className={"table-contents__row" + moreClasses(row)}>
 				<td>{ind+1}</td>
 				<td>{date}</td>
-				{values.map((val, i) => <td key={i} className="rouble">{formatMoney(val)}</td>)}
+				{values.map((val, i) => <td key={i} className="rouble">{formatMoney(val, currency)}</td>)}
 				<td>
 					{addedPayment ? <AddedPayment rowInd={ind}/> :
 						<ControlButton className="button table-contents__button"

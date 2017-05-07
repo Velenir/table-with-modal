@@ -12,7 +12,7 @@ function getDefaultInitialState() {
 				{date: "08.16", values: [120000, 3420000, 10000, 30000, 40000]},
 			]
 		},
-		currency: "i"
+		currency: "RUB"
 	};
 }
 
