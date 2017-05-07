@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import "../styles/addedPayment.scss";
 import CloseButton from "./CloseButton";
 
+import {formatMoney} from "../helpers";
+
 class AddedPayment extends Component {
 	removePayment = () => {
 		const {removePayment, rowInd} = this.props;
@@ -15,8 +17,8 @@ class AddedPayment extends Component {
 			<div className="added-payment">
 				<CloseButton className="added-payment__button" onClick={this.removePayment}/>
 				<div>
-					<p className="added-payment__value">{value} <span className="rouble">{currency}</span></p>
-					<p className="added-payment__saving">Экономия {saving} <span className="rouble">{currency}</span></p>
+					<p className="added-payment__value rouble">{formatMoney(value)}</p>
+					<p className="added-payment__saving rouble">Экономия {formatMoney(saving)}</p>
 				</div>
 			</div>
 		);

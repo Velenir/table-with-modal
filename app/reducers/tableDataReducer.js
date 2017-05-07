@@ -9,7 +9,7 @@ export function rowReducer(state = {}, action) {
 			return {
 				...state,
 				// не уверен как считается экономия (saving)
-				addedPayment: {value: action.value, saving: "25 000"}
+				addedPayment: {value: action.value, saving: 25000}
 			};
 		default:
 			return state;

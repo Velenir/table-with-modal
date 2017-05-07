@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import AddedPayment from "../containers/AddedPayment";
 import ControlButton from "./ControlButton";
 
+import {formatMoney} from "../helpers";
+
 // conditional classes
 const moreClasses = ({disabled, focused}) => {
 	let classNames = "";
@@ -24,7 +26,7 @@ class TableRow extends Component {
 			<tr className={"table-contents__row" + moreClasses(row)}>
 				<td>{ind+1}</td>
 				<td>{date}</td>
-				{values.map((val, i) => <td key={i}>{val} <span className="rouble">{currency}</span></td>)}
+				{values.map((val, i) => <td key={i} className="rouble">{formatMoney(val)}</td>)}
 				<td>
 					{addedPayment ? <AddedPayment rowInd={ind}/> :
 						<ControlButton className="button table-contents__button"
