@@ -13,9 +13,10 @@ const PATHS = {
 };
 
 const templateConfig = {
-	title: 'React TodoMVC',
+	title: 'Table with Modal',
 	inject: false,
-	template: require('html-webpack-template-pug'),
+	template: 'pug-loader!./app/index.pug',
+	mobile: true,
 	appMountId: 'app'
 };
 
