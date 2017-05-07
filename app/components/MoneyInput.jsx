@@ -99,6 +99,11 @@ class MoneyInut extends Component {
 		this.resetCaret();
 	}
 	
+	get value() {
+		const val = this.state.value.replace(/\D/g, "");
+		return val === "" ? null : parseInt(val);
+	}
+	
 	checkValidity() {
 		return this.input.checkValidity();
 	}

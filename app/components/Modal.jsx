@@ -5,7 +5,7 @@ import CloseButton from "./CloseButton";
 
 class Modal extends Component {
 	render() {
-		// if(!this.props.open) return null;
+		if(!this.props.open) return null;
 		
 		const {closeModal, children} = this.props;
 		

@@ -6,8 +6,11 @@ class AddPaymentDialog extends Component {
 	state = {buttonDisabled: true}
 	
 	onSaveClicked = () => {
+		const val = this.input.value;
+		if(val == null || val <= 0) return;
+		
 		const {rowInd, saveAndCloseModal} = this.props;
-		saveAndCloseModal(rowInd, this.input.value);
+		saveAndCloseModal(rowInd, val);
 	}
 	
 	onInputChange = () => {
