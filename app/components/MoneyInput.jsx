@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 
 import {formatMoney} from "../helpers";
 import "../styles/moneyInput.scss";
 
 
-class MoneyInut extends Component {
+class MoneyInut extends PureComponent {
 	currencySymbol = formatMoney(0, this.props.currency).slice(-1)
 	suffix = " " + this.currencySymbol
 	suffixLength = this.suffix.length
@@ -18,6 +18,10 @@ class MoneyInut extends Component {
 		let newValue = value.replace(/\D/g, "");
 		
 		if(newValue === "") {
+			if(newValue === oldValue.slice(0, -2)) {
+				requestAnimationFrame(this.resetCaret);
+				return;
+			}
 			this.setState({value: this.suffix}, this.resetCaret);
 			newValue !== oldValue && this.props.onChange && this.props.onChange(e);
 			return;
@@ -27,7 +31,11 @@ class MoneyInut extends Component {
 		
 		// fixes caret jump on invalid (non-numeric) paste
 		if(newValue === oldValue) {
-			start -= value.length - oldValue.length;
+			// delay effect till after reflow(?)
+			requestAnimationFrame(() => {
+				target.selectionStart = target.selectionEnd = start - (value.length - newValue.length);
+			});
+			return;
 		}
 		
 		// account for adding spaces (e.g. 1 000)
@@ -48,7 +56,7 @@ class MoneyInut extends Component {
 		
 	}
 	
-	onKeyDown(e) {
+	onKeyDown = (e) => {
 		const {key, target} = e;
 		const {selectionStart: start, selectionEnd: end, value: {length}} = target;
 		
@@ -78,7 +86,7 @@ class MoneyInut extends Component {
 			caretColor: "auto"
 		});
 		
-		// when previously had selection start and end are reported stale
+		// when previously had a selection, start and end are reported stale
 		// correct stats on the next tick
 		requestAnimationFrame(() => {
 			if(target.selectionStart > len - this.suffixLength && target.selectionStart === target.selectionEnd) {

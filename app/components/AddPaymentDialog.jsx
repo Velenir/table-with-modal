@@ -14,9 +14,9 @@ class AddPaymentDialog extends Component {
 	}
 	
 	onInputChange = () => {
-		this.setState({
-			buttonDisabled: !this.input.checkValidity()
-		});
+		// this.setState({
+		// 	buttonDisabled: !this.input.checkValidity()
+		// });
 	}
 	
 	render() {
@@ -32,6 +32,32 @@ class AddPaymentDialog extends Component {
 				</div>
 			</div>
 		);
+	}
+	
+	componentDidUpdate(prevProps, prevState) {
+		const updatedProps = {};
+		for(let prop in prevProps) {
+			const prevProp = prevProps[prop];
+			const currentProp = this.props[prop];
+			if(prevProp !== currentProp) {
+				updatedProps[prop] = `${prevProp} -> ${currentProp}`;
+			}
+		}
+		
+		const updatedState = {};
+		for(let prop in prevState) {
+			const prevProp = prevState[prop];
+			const currentProp = this.state[prop];
+			if(prevProp !== currentProp) {
+				updatedState[prop] = `${prevProp} -> ${currentProp}`;
+			}
+		}
+		console.log(`AddPaymentDialog UPDATED with props`, updatedProps);
+		console.log(`AddPaymentDialog UPDATED with state`, updatedState);
+	}
+	
+	shouldComponentUpdate() {
+		return false;
 	}
 }
 
